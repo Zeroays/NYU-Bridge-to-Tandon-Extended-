@@ -1,25 +1,8 @@
 #include <iostream>
 using namespace std;
 
-void analyzeDividors(int num, int& outCountDivs, int& outSumDivs) {
-    int countDivs = 0, sumDivs = 1;
-
-    for (int i = 2; i * i < num; i++) {
-        if (num % i == 0) {
-            sumDivs += i;
-            sumDivs += num / i;
-            countDivs += 2;
-        }
-    }
-    outCountDivs = countDivs;
-    outSumDivs = sumDivs;
-}
-
-bool isPerfect(int num) {
-    int countDivs, sumDivs;
-    analyzeDividors(num, countDivs, sumDivs);
-    return num == sumDivs;
-}
+void analyzeDividors(int num, int& outCountDivs, int& outSumDivs);
+bool isPerfect(int num);
 
 int main() {
     int num;
@@ -52,4 +35,24 @@ int main() {
     }
 
     return 0;
+}
+
+void analyzeDividors(int num, int& outCountDivs, int& outSumDivs) {
+    int countDivs = 0, sumDivs = 1;
+
+    for (int i = 2; i * i < num; i++) {
+        if (num % i == 0) {
+            sumDivs += i;
+            sumDivs += num / i;
+            countDivs += 2;
+        }
+    }
+    outCountDivs = countDivs;
+    outSumDivs = sumDivs;
+}
+
+bool isPerfect(int num) {
+    int countDivs, sumDivs;
+    analyzeDividors(num, countDivs, sumDivs);
+    return num == sumDivs;
 }

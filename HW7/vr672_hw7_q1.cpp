@@ -1,6 +1,24 @@
 #include <iostream>
 using namespace std;
 
+int printMonthCalendar(int numOfDays, int startingDay);
+bool isLeapYear(int year);
+void printYearCalendar(int year, int startingDay);
+
+int main() {
+    int year, startingDay;
+
+    cout << "Please enter the year: ";
+    cin >> year;
+
+    cout << "Please enter the starting day: ";
+    cin >> startingDay;
+
+    printYearCalendar(year, startingDay);
+
+    return 0;
+}
+
 int printMonthCalendar(int numOfDays, int startingDay) {
     const int DAYS_IN_A_WEEK = 7;
     const string daysOfTheWeek = "Mon\tTue\tWed\tThr\tFri\tSat\tSun";
@@ -37,7 +55,7 @@ int printMonthCalendar(int numOfDays, int startingDay) {
 
 }
 
-int isLeapYear(int year) {
+bool isLeapYear(int year) {
     if (year % 4 == 0) {
         if (year % 100 != 0) {
             return true;
@@ -103,20 +121,4 @@ void printYearCalendar(int year, int startingDay) {
     }
     
 
-}
-
-int main() {
-    int lastDay;
-    int year;
-
-    lastDay = printMonthCalendar(31, 1);
-    cout << endl;
-    cout << lastDay << endl;
-
-    year = isLeapYear(1904);
-    cout << year << endl;
-
-    printYearCalendar(2016, 5);
-
-    return 0;
 }
